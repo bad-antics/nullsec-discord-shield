@@ -1,0 +1,42 @@
+[package]
+name = "nullsec-discord-shield"
+version = "1.0.0"
+edition = "2021"
+authors = ["bad-antics"]
+description = "Discord token hardening and anti-theft protection"
+license = "MIT"
+repository = "https://github.com/bad-antics/nullsec-discord-shield"
+keywords = ["discord", "security", "token", "protection", "hardening"]
+
+[dependencies]
+tokio = { version = "1.35", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+aes-gcm = "0.10"
+sha2 = "0.10"
+rand = "0.8"
+base64 = "0.21"
+notify = "6.1"
+regex = "1.10"
+dirs = "5.0"
+chrono = "0.4"
+log = "0.4"
+env_logger = "0.10"
+lazy_static = "1.4"
+hostname = "0.3"
+whoami = "1.4"
+windows = { version = "0.52", features = ["Win32_Foundation", "Win32_System_Memory", "Win32_Security"], optional = true }
+
+[target.'cfg(windows)'.dependencies]
+windows = { version = "0.52", features = ["Win32_Foundation", "Win32_System_Memory", "Win32_Security", "Win32_System_Threading"] }
+
+[target.'cfg(unix)'.dependencies]
+nix = { version = "0.27", features = ["process", "signal"] }
+
+[features]
+default = []
+windows-hooks = ["windows"]
+
+[[bin]]
+name = "discord-shield"
+path = "src/main.rs"
