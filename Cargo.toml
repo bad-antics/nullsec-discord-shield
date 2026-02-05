@@ -11,7 +11,7 @@ documentation = "https://docs.rs/nullsec-discord-shield"
 readme = "README.md"
 keywords = ["discord", "security", "token", "protection", "anti-malware"]
 categories = ["command-line-utilities", "cryptography", "authentication"]
-exclude = [".github/*", "tests/*", "examples/*"]
+exclude = [".github/*", "tests/*", "examples/*", "target/*", "Cargo.lock"]
 
 [badges]
 maintenance = { status = "actively-developed" }
