@@ -1,12 +1,20 @@
 [package]
 name = "nullsec-discord-shield"
-version = "1.0.0"
+version = "1.1.0"
 edition = "2021"
-authors = ["bad-antics"]
-description = "Discord token hardening and anti-theft protection"
+authors = ["bad-antics <bad-antics@nullsec.dev>"]
+description = "Discord token hardening and anti-theft protection - Monitors, encrypts, and protects Discord tokens from stealers and grabbers"
 license = "MIT"
 repository = "https://github.com/bad-antics/nullsec-discord-shield"
-keywords = ["discord", "security", "token", "protection", "hardening"]
+homepage = "https://github.com/bad-antics/nullsec-discord-shield"
+documentation = "https://docs.rs/nullsec-discord-shield"
+readme = "README.md"
+keywords = ["discord", "security", "token", "protection", "anti-malware"]
+categories = ["command-line-utilities", "cryptography", "authentication"]
+exclude = [".github/*", "tests/*", "examples/*"]
+
+[badges]
+maintenance = { status = "actively-developed" }
 
 [dependencies]
 tokio = { version = "1.35", features = ["full"] }

@@ -31,7 +31,7 @@ impl FileMonitor {
             return Ok(());
         }
         
-        let (tx, rx) = mpsc::channel();
+        let (_tx, _rx): (mpsc::Sender<()>, mpsc::Receiver<()>) = mpsc::channel();
         
         let config = self.config.clone();
         let handle = thread::spawn(move || {
@@ -110,7 +110,7 @@ impl FileMonitor {
         false
     }
     
-    fn check_accessor(path: &PathBuf, config: &ShieldConfig) {
+    fn check_accessor(_path: &PathBuf, _config: &ShieldConfig) {
         // Check which process accessed the file
         // If not Discord or whitelisted, alert!
         
